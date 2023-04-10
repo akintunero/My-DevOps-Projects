@@ -1,6 +1,8 @@
 <h1> Setting up a Maven Project with Jenkins and Nexus </h1>
 <h2> This guide provides a step-by-step process for setting up a Maven project with Jenkins and Nexus on Ubuntu Server.</h2>
 
+![Image 1](https://user-images.githubusercontent.com/13016369/230787363-31019a31-35ae-4a06-b54f-2d963c766f39.png)
+
 Prerequisites
 
     Ubuntu Server
@@ -78,7 +80,57 @@ Step 8: Retrieve the Nexus default password
        Retrieve the default password on your Ubuntu Server using the command:
                         
                         vim /opt/sonatype-work/nexus3/admin.password
+Step 9: Step 9: Create a new Maven project in Jenkins
 
+        Create a new Maven project in Jenkins by clicking "New Item" in the Jenkins dashboard and selecting "Maven Project". Give the project a name and click "OK".
                         
+Step 10: Configure the Maven project
+
+Configure the Maven project by setting the following properties:
+
+    Under "Source Code Management", select "Git" and enter the repository URL for your Java Maven app hosted on GitHub or another Git hosting service.
+
+    Under "Build", add the following Maven command to build your project: clean install
+
+    Under "Post-build Actions", select "Deploy artifacts to Nexus" and configure the Nexus server by providing the URL, username, and password for your Nexus repository hosted on AWS.
+                        
+Step 11: Create a new pipeline in Jenkins
+
+       Create a new pipeline in Jenkins by clicking "New Item" in the Jenkins dashboard and selecting "Pipeline". Give the pipeline a name and click "OK".
+Step 12: Configure the pipeline
+
+        Configure the pipeline by entering the following script in the "Pipeline Script" box:
+                        
+                        pipeline {
+                                  agent any
+                                  stages {
+                                      stage('Build') {
+                                          steps {
+                                              sh 'mvn clean install'
+                                          }
+                                      }
+                                      stage('Deploy') {
+                                          steps {
+                                              nexusArtifactUploader(
+                                                  nexusVersion: 'nexus3',
+                                                  protocol: 'http',
+                                                  nexusUrl: 'http://<your-nexus-ip>:8081/nexus/repository/<your-repo-name>',
+                                                  groupId: 'com.example',
+                                                  version: '1.0-SNAPSHOT',
+                                                  repository: 'snapshots',
+                                                  credentialsId: 'nexus-credentials',
+                                                  artifacts: [
+                                                      [artifactId: 'your-artifact-id', type: 'jar', file: 'target/your-artifact-id.jar']
+                                                  ]
+                                              )
+                                          }
+                                      }
+                                  }
+}
+                        
+                     
+
+
+                
 
  
