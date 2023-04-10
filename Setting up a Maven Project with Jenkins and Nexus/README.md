@@ -10,6 +10,7 @@ Prerequisites
    <li> OpenJDK 8 installed </li>
     
     
+    
 Step 1: Install Docker on the Ubuntu Server
  
       apt install docker.io
