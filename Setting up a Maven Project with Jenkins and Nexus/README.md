@@ -3,7 +3,7 @@
 
 ![Image 1](https://user-images.githubusercontent.com/13016369/230787363-31019a31-35ae-4a06-b54f-2d963c766f39.png)
 
-Prerequisites
+<h3> Prerequisites </h3>
 
    <li> Ubuntu Server </li>
    <li> Docker installed </li>
