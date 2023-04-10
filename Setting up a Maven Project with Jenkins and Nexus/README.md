@@ -1,5 +1,5 @@
-Setting up a Maven Project with Jenkins and Nexus
-This guide provides a step-by-step process for setting up a Maven project with Jenkins and Nexus on Ubuntu Server.
+<h1> Setting up a Maven Project with Jenkins and Nexus </h1>
+<h2> This guide provides a step-by-step process for setting up a Maven project with Jenkins and Nexus on Ubuntu Server.</h2>
 
 Prerequisites
 
