@@ -9,7 +9,7 @@ Prerequisites
    <li> Docker installed </li>
    <li> OpenJDK 8 installed </li>
     
-    <br> </br>
+   <br> Steps </br>
     
 Step 1: Install Docker on the Ubuntu Server
  
