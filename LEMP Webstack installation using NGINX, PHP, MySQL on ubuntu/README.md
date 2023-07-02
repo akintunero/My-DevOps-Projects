@@ -145,3 +145,10 @@ You can now test the PHP setup by visiting http://<server_domain_or_IP>/info.php
 Remember to remove the info.php file or restrict access to it once you have completed the testing.
 
 
+<h3> Result: </h3>
+
+<img width="1440" alt="Screenshot 2023-07-02 at 22 03 08" src="https://github.com/akintunero/My-DevOps-Projects/assets/13016369/dd46e327-fc4f-4535-8c5f-33f953c03b1c">
+
+
+
+
