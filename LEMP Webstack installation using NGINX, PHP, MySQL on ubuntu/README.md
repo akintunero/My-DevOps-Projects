@@ -38,8 +38,6 @@ It is recommended to run the security script that comes pre-installed with MySQL
 
 Exit the SQL shell with:
 
-    sql
-
     exit
 
 Start an interactive shell with:
