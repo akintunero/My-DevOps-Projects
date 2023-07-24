@@ -23,6 +23,7 @@ Use the gdisk utility to create a single partition on each of the three disks:
 
 Use the lsblk utility to view the newly configured partitions on each of the three disks:
   lsblk
+  
 <img width="569" alt="Screenshot 2023-07-23 at 23 28 10" src="https://github.com/akintunero/My-DevOps-Projects/assets/13016369/52a6d3aa-89db-45ed-a892-4bc5a1c823de">
 
 Install the lvm2 package using:
