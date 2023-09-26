@@ -6,15 +6,20 @@ This DevOps project demonstrates how to deploy MongoDB and MongoDB Express in a 
 
 Before you begin, make sure you have the following prerequisites set up:
 
+
 - A Kubernetes cluster provisioned and `kubectl` configured.
 - Docker installed (if you need to build custom Docker images).
 - Base64-encoded credentials for MongoDB (for creating a Kubernetes Secret).
+
+  
 
 ## Deployment
 
 ### 1. Deploy MongoDB
 
 Deploy MongoDB with 3 replicas using the following YAML configuration:
+
+
 
 apiVersion: apps/v1
 kind: Deployment
@@ -47,6 +52,8 @@ spec:
                   name: mongodb-secret
                   key: mongo-root-password
 
+                  
+
 This configuration (mongo-deployment.yaml) specifies the MongoDB deployment with necessary labels, ports, and environment variables.
 2. Expose MongoDB with a Service
 
@@ -65,6 +72,7 @@ spec:
     - protocol: TCP
       port: 27017
       targetPort: 27017
+
 
 The mongodb-service.yaml file defines a service that allows access to the MongoDB pods.
 3. Deploy MongoDB Express
@@ -105,6 +113,8 @@ spec:
             - name: ME_CONFIG_MONGODB_SERVER
               value: mongodb-service  # Update to match the name of your MongoDB service
 
+              
+
 The mongo-express-deployment.yaml file deploys MongoDB Express with the required environment variables.
 4. Expose MongoDB Express
 
@@ -125,12 +135,10 @@ spec:
       port: 8081
       targetPort: 8081
 
+      
+
 The mongo-express-service.yaml file sets up a service that provides access to the MongoDB Express web interface.
-5. Configuration (Optional)
-
-If additional configuration is needed, you can use the following YAML configuration to define a ConfigMap with key-value pairs:
-
-
+5. Configuration 
 
 apiVersion: v1
 kind: ConfigMap
@@ -139,6 +147,7 @@ metadata:
 data:
   database_url: mongodb-service  # Update to match the name of your MongoDB service
   # Add more key-value pairs as needed
+  
 
 6. Secret for MongoDB Credentials
 
@@ -154,7 +163,8 @@ data:
   mongo-root-username: BASE64_ENCODED_USERNAME  # Replace with your Base64-encoded username
   mongo-root-password: BASE64_ENCODED_PASSWORD  # Replace with your Base64-encoded password
 
-Replace the placeholders in mongodb-secret.yaml with your actual Base64-encoded MongoDB username and password.
+
+
 Accessing MongoDB Express
 
     For internal access within the cluster, consider using minikube service mongo-express-service (assuming you are using Minikube):
