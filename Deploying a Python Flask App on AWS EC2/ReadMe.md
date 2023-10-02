@@ -7,7 +7,6 @@ This guide will walk you through the process of deploying a Python Flask web app
 Before you begin, ensure you have the following prerequisites:
 
 - An AWS account with the necessary permissions to create and manage EC2 instances.
-- AWS CLI installed and configured with access credentials.
 - SSH key pair created for connecting to the EC2 instance.
 - Basic knowledge of Python, Flask, and the command line.
 
